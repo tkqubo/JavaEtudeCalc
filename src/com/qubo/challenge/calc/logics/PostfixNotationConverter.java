@@ -8,25 +8,25 @@ import com.qubo.challenge.calc.tokens.Paren;
 import com.qubo.challenge.calc.tokens.UnaryOperator;
 
 /**
- * ’†’u‹L–@‚ğAŒã’u‹L–@‚É•ÏŠ·‚·‚éƒNƒ‰ƒX
+ * ä¸­ç½®è¨˜æ³•ã‚’ã€å¾Œç½®è¨˜æ³•ã«å¤‰æ›ã™ã‚‹ã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class PostfixNotationConverter {
-	/** ƒGƒ‰[ƒƒbƒZ[ƒW: <code>"•Â‚¶Š‡ŒÊ‚ª—]‚Á‚Ä‚¢‚Ü‚·I"</code> */
-	public static final String ERROR_UNPROCESSED_LEFTPAREN = "ŠJ‚«Š‡ŒÊ‚ª—]‚Á‚Ä‚¢‚Ü‚·I";
-	/** ƒGƒ‰[ƒƒbƒZ[ƒW: <code>"ŠJ‚«Š‡ŒÊ‚ª•s‘«‚µ‚Ä‚¢‚Ü‚·I"</code> */
-	public static final String ERROR_DEFICIT_LEFTPAREN = "ŠJ‚«Š‡ŒÊ‚ª•s‘«‚µ‚Ä‚¢‚Ü‚·I";
+	/** ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: <code>"é–‰ã˜æ‹¬å¼§ãŒä½™ã£ã¦ã„ã¾ã™ï¼"</code> */
+	public static final String ERROR_UNPROCESSED_LEFTPAREN = "é–‹ãæ‹¬å¼§ãŒä½™ã£ã¦ã„ã¾ã™ï¼";
+	/** ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: <code>"é–‹ãæ‹¬å¼§ãŒä¸è¶³ã—ã¦ã„ã¾ã™ï¼"</code> */
+	public static final String ERROR_DEFICIT_LEFTPAREN = "é–‹ãæ‹¬å¼§ãŒä¸è¶³ã—ã¦ã„ã¾ã™ï¼";
 
 	/**
-	 * {@link Iterable}{@code <}{@link Object}{@code >}‚Å—^‚¦‚ç‚ê‚½’†’u‹L–@ƒg[ƒNƒ“—ñ‚ğAŒã’u‹L–@ƒg[ƒNƒ“—ñ‚É•ÏŠ·‚·‚é
-	 * @param tokens ’†’u‹L–@‚Å•\Œ»‚µ‚½”®
-	 * @return Œã’u‹L–@‚Å•\Œ»‚µ‚½”®
-	 * @throws InvalidFormulaException ƒg[ƒNƒ“‚ª•s‘«‚µ‚Ä‚¢‚éê‡‚É”­¶
+	 * {@link Iterable}{@code <}{@link Object}{@code >}ã§ä¸ãˆã‚‰ã‚ŒãŸä¸­ç½®è¨˜æ³•ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã‚’ã€å¾Œç½®è¨˜æ³•ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã«å¤‰æ›ã™ã‚‹
+	 * @param tokens ä¸­ç½®è¨˜æ³•ã§è¡¨ç¾ã—ãŸæ•°å¼
+	 * @return å¾Œç½®è¨˜æ³•ã§è¡¨ç¾ã—ãŸæ•°å¼
+	 * @throws InvalidFormulaException ãƒˆãƒ¼ã‚¯ãƒ³ãŒä¸è¶³ã—ã¦ã„ã‚‹å ´åˆã«ç™ºç”Ÿ
 	 */
 	public Iterable<Object> convert(Iterable<Object> tokens) throws InvalidFormulaException {
-		// Œã’u‹L–@ƒXƒ^ƒbƒN
+		// å¾Œç½®è¨˜æ³•ã‚¹ã‚¿ãƒƒã‚¯
 		Stack<Object> stackPn = new Stack<Object>();
-		// ‰‰ZqƒXƒ^ƒbƒN
+		// æ¼”ç®—å­ã‚¹ã‚¿ãƒƒã‚¯
 		Stack<Object> stackOp = new Stack<Object>();
 
 		for (Object token : tokens) {
@@ -46,7 +46,7 @@ public class PostfixNotationConverter {
 			} else if (token instanceof Operator) {
 				consumeOperatorStack(stackPn, stackOp, (Operator) token);
 			} else {
-				throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+				throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 			}
 		}
 
@@ -59,27 +59,27 @@ public class PostfixNotationConverter {
 	}
 
 	/**
-	 * ‘ÎÛƒXƒ^ƒbƒN“à‚Ì–¢ˆ—‚ÌŠJ‚«Š‡ŒÊ‚ğƒ`ƒFƒbƒN‚·‚éB–¢ˆ—‚ÌŠJ‚«Š‡ŒÊ‚ª‘¶İ‚µ‚½ê‡‚Í—áŠO‚ª”­¶
-	 * @param stackOp ‘ÎÛƒXƒ^ƒbƒN
-	 * @throws InvalidFormulaException –¢ˆ—‚ÌŠJ‚«Š‡ŒÊ‚ª‘¶İ‚µ‚½ê‡‚É”­¶
+	 * å¯¾è±¡ã‚¹ã‚¿ãƒƒã‚¯å†…ã®æœªå‡¦ç†ã®é–‹ãæ‹¬å¼§ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚æœªå‡¦ç†ã®é–‹ãæ‹¬å¼§ãŒå­˜åœ¨ã—ãŸå ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿ
+	 * @param stackOp å¯¾è±¡ã‚¹ã‚¿ãƒƒã‚¯
+	 * @throws InvalidFormulaException æœªå‡¦ç†ã®é–‹ãæ‹¬å¼§ãŒå­˜åœ¨ã—ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private void checkRightParen(Stack<Object> stackOp) throws InvalidFormulaException {
 		if (stackOp.peek() == Paren.Left) throw new InvalidFormulaException(ERROR_UNPROCESSED_LEFTPAREN);
 	}
 	/**
-	 * ‘ÎÛƒXƒ^ƒbƒN‚ª‹ó‚Å‚È‚¢‚©ƒ`ƒFƒbƒN‚·‚éB‹ó‚Ìê‡‚Í—áŠO‚ª”­¶B
-	 * @param stackOp ‘ÎÛƒXƒ^ƒbƒN
-	 * @param message ƒGƒ‰[ƒƒbƒZ[ƒW
-	 * @throws InvalidFormulaException ƒg[ƒNƒ“‚ª•s‘«‚µ‚Ä‚¢‚éê‡‚É”­¶
+	 * å¯¾è±¡ã‚¹ã‚¿ãƒƒã‚¯ãŒç©ºã§ãªã„ã‹ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚ç©ºã®å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã€‚
+	 * @param stackOp å¯¾è±¡ã‚¹ã‚¿ãƒƒã‚¯
+	 * @param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * @throws InvalidFormulaException ãƒˆãƒ¼ã‚¯ãƒ³ãŒä¸è¶³ã—ã¦ã„ã‚‹å ´åˆã«ç™ºç”Ÿ
 	 */
 	private void checkEmpty(Stack<Object> stackOp, String message) throws InvalidFormulaException {
 		if (stackOp.isEmpty()) throw new InvalidFormulaException(message);
 	}
 	/**
-	 * —Dæ‡ˆÊ‚ÉŠî‚Ã‚¢‚ÄA‰‰ZqƒXƒ^ƒbƒN‚É‚ ‚é{@link Operator}ƒCƒ“ƒXƒ^ƒ“ƒX‚ğŒã’u‹L–@ƒXƒ^ƒbƒN‚ÉƒvƒbƒVƒ…‚·‚éB
-	 * @param stackPn Œã’u‹L–@ƒXƒ^ƒbƒN
-	 * @param stackOp ‰‰ZqƒXƒ^ƒbƒN
-	 * @param currentOperatorToken V‚½‚È{@link Operator}ƒCƒ“ƒXƒ^ƒ“ƒX
+	 * å„ªå…ˆé †ä½ã«åŸºã¥ã„ã¦ã€æ¼”ç®—å­ã‚¹ã‚¿ãƒƒã‚¯ã«ã‚ã‚‹{@link Operator}ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å¾Œç½®è¨˜æ³•ã‚¹ã‚¿ãƒƒã‚¯ã«ãƒ—ãƒƒã‚·ãƒ¥ã™ã‚‹ã€‚
+	 * @param stackPn å¾Œç½®è¨˜æ³•ã‚¹ã‚¿ãƒƒã‚¯
+	 * @param stackOp æ¼”ç®—å­ã‚¹ã‚¿ãƒƒã‚¯
+	 * @param currentOperatorToken æ–°ãŸãª{@link Operator}ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 	 */
 	private void consumeOperatorStack(Stack<Object> stackPn, Stack<Object> stackOp, Operator currentOperatorToken) {
 		while (!stackOp.empty() && stackOp.peek() instanceof Operator) {

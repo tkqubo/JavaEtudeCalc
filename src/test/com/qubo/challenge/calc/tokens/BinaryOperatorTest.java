@@ -20,11 +20,11 @@ import com.qubo.challenge.calc.tokens.Operator;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * {@link BinaryOperator}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link BinaryOperator}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class BinaryOperatorTest {
-	/** {@link Operator#Add}‚ÌƒeƒXƒg */
+	/** {@link Operator#Add}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testAdd() {
 		doTest(1, 1, 4, 1, Add, "5");
@@ -37,7 +37,7 @@ public class BinaryOperatorTest {
 		assertThat(Add.getPriority(), is(PRIORITY_1));
 		assertThat(Add.toString(), is("" + SYMBOL_ADD));
 	}
-	/** {@link Operator#Sub}‚ÌƒeƒXƒg */
+	/** {@link Operator#Sub}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testSub() {
 		doTest(1, 1, 4, 1, Sub, "-3");
@@ -51,7 +51,7 @@ public class BinaryOperatorTest {
 		assertThat(Sub.getPriority(), is(PRIORITY_1));
 		assertThat(Sub.toString(), is("" + SYMBOL_SUB));
 	}
-	/** {@link Operator#Mul}‚ÌƒeƒXƒg */
+	/** {@link Operator#Mul}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testMul() {
 		doTest(1, 1, 4, 1, Mul, "4");
@@ -65,7 +65,7 @@ public class BinaryOperatorTest {
 		assertThat(Mul.getPriority(), is(PRIORITY_2));
 		assertThat(Mul.toString(), is("" + SYMBOL_MUL));
 	}
-	/** {@link Operator#Div}‚ÌƒeƒXƒg */
+	/** {@link Operator#Div}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testDiv() {
 		doTest(1, 1, 4, 1, Div, "1/4");
@@ -80,13 +80,13 @@ public class BinaryOperatorTest {
 		assertThat(Div.toString(), is("" + SYMBOL_DIV));
 	}
 	/**
-	 * {@link #testAdd()}, {@link #testDiv()}, {@link #testMul()}, {@link #testSub()}—p‚Ì“à•”ƒNƒ‰ƒX
-	 * @param num1 ƒIƒyƒ‰ƒ“ƒh‚P‚Ì•ªq
-	 * @param den1 ƒIƒyƒ‰ƒ“ƒh‚P‚Ì•ª•ê
-	 * @param num2 ƒIƒyƒ‰ƒ“ƒh‚Q‚Ì•ªq
-	 * @param den2 ƒIƒyƒ‰ƒ“ƒh‚Q‚Ì•ª•ê
-	 * @param operator “ñ€‰‰Z
-	 * @param expected ‰‰ZŒ‹‰Ê‚Ì•¶š—ñ•\Œ»
+	 * {@link #testAdd()}, {@link #testDiv()}, {@link #testMul()}, {@link #testSub()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹
+	 * @param num1 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼‘ã®åˆ†å­
+	 * @param den1 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼‘ã®åˆ†æ¯
+	 * @param num2 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼’ã®åˆ†å­
+	 * @param den2 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼’ã®åˆ†æ¯
+	 * @param operator äºŒé …æ¼”ç®—
+	 * @param expected æ¼”ç®—çµæœã®æ–‡å­—åˆ—è¡¨ç¾
 	 */
 	private void doTest(int num1, int den1, int num2, int den2, BinaryOperator operator, String expected) {
 		Value operand1 = new Value(num1, den1);

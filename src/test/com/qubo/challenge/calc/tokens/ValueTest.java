@@ -10,30 +10,30 @@ import org.junit.Test;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * {@link Value}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link Value}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class ValueTest {
 	private static final float DELTA = 0.000001f;
 	Value value;
 
-	/** {@link Value#Value(int)}‚ÌƒeƒXƒg */
+	/** {@link Value#Value(int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testValueInt() {
 		value = new Value(1);
-		assertEquals("³‚µ‚­‚ ‚è‚Ü‚¹‚ñI", value.getRealValue(), 1.0f, DELTA);
+		assertEquals("æ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼", value.getRealValue(), 1.0f, DELTA);
 		value = new Value(0);
-		assertEquals("³‚µ‚­‚ ‚è‚Ü‚¹‚ñI", value.getRealValue(), 0.0f, DELTA);
+		assertEquals("æ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼", value.getRealValue(), 0.0f, DELTA);
 		value = new Value(1582);
-		assertEquals("³‚µ‚­‚ ‚è‚Ü‚¹‚ñI", value.getRealValue(), 1582.0f, DELTA);
+		assertEquals("æ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼", value.getRealValue(), 1582.0f, DELTA);
 	}
-	/** {@link Value#Value(int, int)}‚ÌƒeƒXƒg */
+	/** {@link Value#Value(int, int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testValueIntInt() {
 		value = new Value(1, 2);
-		assertEquals("³‚µ‚­‚ ‚è‚Ü‚¹‚ñI", value.getRealValue(), 0.5f, DELTA);
+		assertEquals("æ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼", value.getRealValue(), 0.5f, DELTA);
 		value = new Value(5, 3);
-		assertEquals("³‚µ‚­‚ ‚è‚Ü‚¹‚ñI", value.getRealValue(), 1.666666666666666f, DELTA);
+		assertEquals("æ­£ã—ãã‚ã‚Šã¾ã›ã‚“ï¼", value.getRealValue(), 1.666666666666666f, DELTA);
 		try {
 			value = new Value(4, 0);
 			fail();
@@ -49,7 +49,7 @@ public class ValueTest {
 	}
 
 
-	/** {@link Value#getDenominator()}‚ÌƒeƒXƒg */
+	/** {@link Value#getDenominator()}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testGetDenominator() {
 		value = new Value(1, 2);
@@ -61,7 +61,7 @@ public class ValueTest {
 		value = new Value(26, 32);
 		assertThat(value.getDenominator(), is(16));
 	}
-	/** {@link Value#setDenominator(int)}‚ÌƒeƒXƒg */
+	/** {@link Value#setDenominator(int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testSetDenominator() {
 		value = new Value(1, 1);
@@ -84,7 +84,7 @@ public class ValueTest {
 		}
 	}
 
-	/** {@link Value#getNumerator()}‚ÌƒeƒXƒg */
+	/** {@link Value#getNumerator()}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testGetNumerator() {
 		value = new Value(1, 2);
@@ -97,7 +97,7 @@ public class ValueTest {
 		assertThat(value.getNumerator(), is(13));
 	}
 
-	/** {@link Value#setNumerator(int)}‚ÌƒeƒXƒg */
+	/** {@link Value#setNumerator(int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testSetNumerator() {
 		value = new Value(0, 2);
@@ -114,7 +114,7 @@ public class ValueTest {
 		assertThat(value.getNumerator(), is(13));
 	}
 
-	/** {@link Value#toString()}‚ÌƒeƒXƒg */
+	/** {@link Value#toString()}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testToString() {
 		value = new Value(1, 2);

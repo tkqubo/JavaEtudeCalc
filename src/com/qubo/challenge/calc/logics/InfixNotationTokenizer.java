@@ -12,20 +12,20 @@ import com.qubo.challenge.calc.tokens.Operator;
 import com.qubo.challenge.calc.tokens.Paren;
 
 /**
- * •¶š—ñ‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚½”®‚ğA’†’u‹L–@‚Ìƒg[ƒNƒ“—ñ‚ÉØ‚è•ª‚¯‚é‚½‚ß‚ÌƒNƒ‰ƒX
+ * æ–‡å­—åˆ—ã¨ã—ã¦ä¸ãˆã‚‰ã‚ŒãŸæ•°å¼ã‚’ã€ä¸­ç½®è¨˜æ³•ã®ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã«åˆ‡ã‚Šåˆ†ã‘ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class InfixNotationTokenizer {
-	/** ƒGƒ‰[•¶š—ñF <code>"”F¯‚³‚ê‚È‚¢ƒg[ƒNƒ“[{0}]‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½I"</code> */
-	public static final String ERROR_UNRECOGNIZED_TOKEN = "”F¯‚³‚ê‚È‚¢ƒg[ƒNƒ“[{0}]‚ªŒ©‚Â‚©‚è‚Ü‚µ‚½I";
-	/** ’P€‰‰Zqu•‰”vŒŸo‚Ì‚½‚ßA’¼‘O‚Ìƒg[ƒNƒ“‚ğ•Û‘¶‚µ‚Ä‚¨‚­ƒIƒuƒWƒFƒNƒg */
+	/** ã‚¨ãƒ©ãƒ¼æ–‡å­—åˆ—ï¼š <code>"èªè­˜ã•ã‚Œãªã„ãƒˆãƒ¼ã‚¯ãƒ³[{0}]ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸï¼"</code> */
+	public static final String ERROR_UNRECOGNIZED_TOKEN = "èªè­˜ã•ã‚Œãªã„ãƒˆãƒ¼ã‚¯ãƒ³[{0}]ãŒè¦‹ã¤ã‹ã‚Šã¾ã—ãŸï¼";
+	/** å˜é …æ¼”ç®—å­ã€Œè² æ•°ã€æ¤œå‡ºã®ãŸã‚ã€ç›´å‰ã®ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ä¿å­˜ã—ã¦ãŠãã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ */
 	private Object prevToken;
 
 	/**
-	 * —^‚¦‚ç‚ê‚½”®‚ğA’†’u‹L–@‚Ìƒg[ƒNƒ“—ñ‚ÉØ‚è•ª‚¯‚é
-	 * @param input ”®
-	 * @return ’†’u‹L–@ƒg[ƒNƒ“—ñ
-	 * @throws InvalidFormulaException ”F¯‚Å‚«‚È‚¢ƒg[ƒNƒ“‚ªŒ©‚Â‚©‚Á‚½ê‡‚É”­¶
+	 * ä¸ãˆã‚‰ã‚ŒãŸæ•°å¼ã‚’ã€ä¸­ç½®è¨˜æ³•ã®ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã«åˆ‡ã‚Šåˆ†ã‘ã‚‹
+	 * @param input æ•°å¼
+	 * @return ä¸­ç½®è¨˜æ³•ãƒˆãƒ¼ã‚¯ãƒ³åˆ—
+	 * @throws InvalidFormulaException èªè­˜ã§ããªã„ãƒˆãƒ¼ã‚¯ãƒ³ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	public List<Object> tokenize(String input) throws InvalidFormulaException {
 		input = putSpace(input.toLowerCase());
@@ -41,9 +41,9 @@ public class InfixNotationTokenizer {
 	}
 
 	/**
-	 * ”®“à‚Ì\¬—v‘f‚ÌŠÔ‚ÉƒXƒy[ƒX‚ğ‘}“ü‚·‚é
-	 * @param input ”®
-	 * @return ƒXƒy[ƒX‚Å‹æØ‚ç‚ê‚½”®
+	 * æ•°å¼å†…ã®æ§‹æˆè¦ç´ ã®é–“ã«ã‚¹ãƒšãƒ¼ã‚¹ã‚’æŒ¿å…¥ã™ã‚‹
+	 * @param input æ•°å¼
+	 * @return ã‚¹ãƒšãƒ¼ã‚¹ã§åŒºåˆ‡ã‚‰ã‚ŒãŸæ•°å¼
 	 */
 	private String putSpace(String input) {
 		Pattern pattern = Pattern.compile("\\+|\\-|\\*|/|\\(|\\)|abs");
@@ -52,10 +52,10 @@ public class InfixNotationTokenizer {
 		return result;
 	}
 	/**
-	 * •¶š—ñƒg[ƒNƒ“‚ğA“KØ‚ÈƒIƒuƒWƒFƒNƒgƒg[ƒNƒ“‚É•ÏŠ·‚·‚é
-	 * @param tokenString •¶š—ñƒg[ƒNƒ“
-	 * @return •¶š—ñ‚É‘Î‰‚·‚éƒIƒuƒWƒFƒNƒg
-	 * @throws InvalidFormulaException ”F¯‚Å‚«‚È‚¢ƒg[ƒNƒ“‚ªŒ©‚Â‚©‚Á‚½ê‡‚É”­¶
+	 * æ–‡å­—åˆ—ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ã€é©åˆ‡ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒˆãƒ¼ã‚¯ãƒ³ã«å¤‰æ›ã™ã‚‹
+	 * @param tokenString æ–‡å­—åˆ—ãƒˆãƒ¼ã‚¯ãƒ³
+	 * @return æ–‡å­—åˆ—ã«å¯¾å¿œã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws InvalidFormulaException èªè­˜ã§ããªã„ãƒˆãƒ¼ã‚¯ãƒ³ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private Object getToken(String tokenString) throws InvalidFormulaException {
 		Object token = doGetToken(tokenString);
@@ -63,10 +63,10 @@ public class InfixNotationTokenizer {
 		return token;
 	}
 	/**
-	 * •¶š—ñƒg[ƒNƒ“‚ğA“KØ‚ÈƒIƒuƒWƒFƒNƒgƒg[ƒNƒ“‚É•ÏŠ·‚·‚éi“à•”—pj
-	 * @param tokenString •¶š—ñƒg[ƒNƒ“
+	 * æ–‡å­—åˆ—ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ã€é©åˆ‡ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒˆãƒ¼ã‚¯ãƒ³ã«å¤‰æ›ã™ã‚‹ï¼ˆå†…éƒ¨ç”¨ï¼‰
+	 * @param tokenString æ–‡å­—åˆ—ãƒˆãƒ¼ã‚¯ãƒ³
 	 * @return
-	 * @throws InvalidFormulaException ”F¯‚Å‚«‚È‚¢ƒg[ƒNƒ“‚ªŒ©‚Â‚©‚Á‚½ê‡‚É”­¶
+	 * @throws InvalidFormulaException èªè­˜ã§ããªã„ãƒˆãƒ¼ã‚¯ãƒ³ãŒè¦‹ã¤ã‹ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private Object doGetToken(String tokenString) throws InvalidFormulaException {
 		if (Operator.SYMBOL_ABS.equals(tokenString)) {

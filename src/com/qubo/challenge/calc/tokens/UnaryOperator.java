@@ -1,24 +1,24 @@
 package com.qubo.challenge.calc.tokens;
 
 /**
- * ’P€‰‰Zq‚ğ•\Œ»‚·‚éƒCƒ“ƒ^[ƒtƒF[ƒX
+ * å˜é …æ¼”ç®—å­ã‚’è¡¨ç¾ã™ã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
  * @author Qubo
  */
 public interface UnaryOperator extends Operator {
 	/**
-	 * ’P€‰‰Z‚ğs‚¤
-	 * @param operand ƒIƒyƒ‰ƒ“ƒh
-	 * @return ‰‰ZŒ‹‰Ê
+	 * å˜é …æ¼”ç®—ã‚’è¡Œã†
+	 * @param operand ã‚ªãƒšãƒ©ãƒ³ãƒ‰
+	 * @return æ¼”ç®—çµæœ
 	 */
 	Value operate(Value operand);
-	/** •‰” */
+	/** è² æ•° */
 	static UnaryOperator Neg = new AbstractUnaryOperator(SYMBOL_NEG, PRIORITY_3) {
 		@Override
 		public Value operate(Value operand) {
 			return new Value(-operand.getNumerator(), operand.getDenominator());
 		}
 	};
-	/** â‘Î’l */
+	/** çµ¶å¯¾å€¤ */
 	static UnaryOperator Abs = new AbstractUnaryOperator(SYMBOL_ABS, PRIORITY_3) {
 		@Override
 		public Value operate(Value operand) {
@@ -27,13 +27,13 @@ public interface UnaryOperator extends Operator {
 	};
 
 	/**
-	 * “à•”—pB{@link UnaryOperator}‚ğÀ‘•‚µ‚½’ŠÛƒNƒ‰ƒXB
+	 * å†…éƒ¨ç”¨ã€‚{@link UnaryOperator}ã‚’å®Ÿè£…ã—ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚
 	 * @author Qubo
 	 */
 	abstract class AbstractUnaryOperator implements UnaryOperator {
-		/** ‰‰Zq‚ÌƒVƒ“ƒ{ƒ‹ */
+		/** æ¼”ç®—å­ã®ã‚·ãƒ³ãƒœãƒ« */
 		private final String symbol;
-		/** ‰‰Z‚Ì—Dæ‡ˆÊ */
+		/** æ¼”ç®—ã®å„ªå…ˆé †ä½ */
 		private final int priority;
 
 		AbstractUnaryOperator(String symbol, int priority) {
@@ -41,13 +41,13 @@ public interface UnaryOperator extends Operator {
 			this.priority = priority;
 		}
 		/*
-		 * (”ñ Javadoc)
+		 * (é Javadoc)
 		 * @see com.qubo.caea0121.calc.tokens.Operator#getPriority()
 		 */
 		@Override
 		public int getPriority() { return priority; }
 		/*
-		 * (”ñ Javadoc)
+		 * (é Javadoc)
 		 * @see java.lang.Object#toString()
 		 */
 		@Override

@@ -9,36 +9,36 @@ import com.qubo.challenge.calc.logics.InvalidFormulaException;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * ƒRƒ“ƒ\[ƒ‹ƒvƒƒOƒ‰ƒ€‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚ª’è‹`‚³‚ê‚½ƒNƒ‰ƒX
+ * ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆãŒå®šç¾©ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class Main {
-	/** À”o—Í—p‚ÌƒIƒvƒVƒ‡ƒ“: {@code "-d"} */
+	/** å®Ÿæ•°å‡ºåŠ›ç”¨ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³: {@code "-d"} */
 	private static final String OPTION_REAL_VALUE = "-d";
-	/** ŒvZ‰ß’öo—Í—p‚ÌƒIƒvƒVƒ‡ƒ“: {@code "-s"} */
+	/** è¨ˆç®—éç¨‹å‡ºåŠ›ç”¨ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³: {@code "-s"} */
 	private static final String OPTION_SHOW_FORMULA = "-s";
 
-	/** {@link Calculator}ƒCƒ“ƒXƒ^ƒ“ƒX */
+	/** {@link Calculator}ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ */
 	private static Calculator calculator = new Calculator();
-	/** {@link FormulaAnalyzer}ƒCƒ“ƒXƒ^ƒ“ƒX */
+	/** {@link FormulaAnalyzer}ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ */
 	private static FormulaAnalyzer analyzer = new FormulaAnalyzer();
-	/** À”o—Í‚ª—LŒø‚©‚Ç‚¤‚© */
+	/** å®Ÿæ•°å‡ºåŠ›ãŒæœ‰åŠ¹ã‹ã©ã†ã‹ */
 	private static boolean realValueRequired;
-	/** ŒvZ‰ß’öo—Í‚ª—LŒø‚©‚Ç‚¤‚© */
+	/** è¨ˆç®—éç¨‹å‡ºåŠ›ãŒæœ‰åŠ¹ã‹ã©ã†ã‹ */
 	private static boolean showFormula;
 
 	/**
 	 * <p>
-	 * ƒRƒ“ƒ\[ƒ‹ƒvƒƒOƒ‰ƒ€‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒgB
-	 * ˆø”‚Æ‚µ‚Ä
+	 * ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã€‚
+	 * å¼•æ•°ã¨ã—ã¦
 	 * <ul>
-	 * <li>”®</li>
-	 * <li>À”•\¦ƒIƒvƒVƒ‡ƒ“({@code "-d"})</li>
-	 * <li>ŒvZ‰ß’öo—ÍƒIƒvƒVƒ‡ƒ“({@code "-s"})</li>
+	 * <li>æ•°å¼</li>
+	 * <li>å®Ÿæ•°è¡¨ç¤ºã‚ªãƒ—ã‚·ãƒ§ãƒ³({@code "-d"})</li>
+	 * <li>è¨ˆç®—éç¨‹å‡ºåŠ›ã‚ªãƒ—ã‚·ãƒ§ãƒ³({@code "-s"})</li>
 	 * </ul>
-	 * ‚Ì‚R‚Â‚ğæ‚é‚±‚Æ‚ª‚Å‚«‚éB
+	 * ã®ï¼“ã¤ã‚’å–ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
 	 * <br />
-	 * ‹N“®ƒRƒ}ƒ“ƒh—áF<br />
+	 * èµ·å‹•ã‚³ãƒãƒ³ãƒ‰ä¾‹ï¼š<br />
 	 * <code>
 	 * java com.qubo.caea0121.calc.Main "1 + 4 * -5"<br />
 	 * java com.qubo.caea0121.calc.Main 3-5/2+8 -d -s<br />
@@ -46,11 +46,11 @@ public class Main {
 	 * </code>
 	 * </p>
 	 * <p>
-	 * ˆø”‚É”®‚ğŠÜ‚ß‚È‚©‚Á‚½ê‡AƒRƒ“ƒ\[ƒ‹‚©‚ç”®‚Ì“ü—Í‚ğ‹‚ß‚éu˜A‘±Àsƒ‚[ƒhv‚Å‹N“®‚·‚éB
-	 * ‚±‚Ìƒ‚[ƒh‚Å‚ÍAƒIƒvƒVƒ‡ƒ“w’è‚ª‚È‚¢ê‡AuÀ”•\¦ƒIƒvƒVƒ‡ƒ“‚È‚µvuŒvZ‰ß’öo—ÍƒIƒvƒVƒ‡ƒ“‚ ‚èv‚Ìó‘Ô‚Å‹N“®‚·‚éB
-	 * ‚Ü‚½A‰½‚à“ü—Í‚¹‚¸EnterƒL[‚ğ‰Ÿ‚µ‚ÄI—¹‚·‚é‚Ü‚ÅA‰½“x‚àŒvZ‚ğÀs‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+	 * å¼•æ•°ã«æ•°å¼ã‚’å«ã‚ãªã‹ã£ãŸå ´åˆã€ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‹ã‚‰æ•°å¼ã®å…¥åŠ›ã‚’æ±‚ã‚ã‚‹ã€Œé€£ç¶šå®Ÿè¡Œãƒ¢ãƒ¼ãƒ‰ã€ã§èµ·å‹•ã™ã‚‹ã€‚
+	 * ã“ã®ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³æŒ‡å®šãŒãªã„å ´åˆã€ã€Œå®Ÿæ•°è¡¨ç¤ºã‚ªãƒ—ã‚·ãƒ§ãƒ³ãªã—ã€ã€Œè¨ˆç®—éç¨‹å‡ºåŠ›ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚ã‚Šã€ã®çŠ¶æ…‹ã§èµ·å‹•ã™ã‚‹ã€‚
+	 * ã¾ãŸã€ä½•ã‚‚å…¥åŠ›ã›ãšEnterã‚­ãƒ¼ã‚’æŠ¼ã—ã¦çµ‚äº†ã™ã‚‹ã¾ã§ã€ä½•åº¦ã‚‚è¨ˆç®—ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
 	 * </p>
-	 * @param args ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”
+	 * @param args ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°
 	 */
 	public static void main(String[] args) {
 		realValueRequired = isRealValueRequired(args);
@@ -68,17 +68,17 @@ public class Main {
 		}
 	}
 	/**
-	 * —^‚¦‚ç‚ê‚½”®‚ÌŒvZ‚ğs‚¤
-	 * @param formula ”®
+	 * ä¸ãˆã‚‰ã‚ŒãŸæ•°å¼ã®è¨ˆç®—ã‚’è¡Œã†
+	 * @param formula æ•°å¼
 	 */
 	private static void doCalculate(String formula) {
 		try {
 			Value value = calculator.eval(formula);
 			if (showFormula) {
-				print("’†’u‹L–@", calculator.getInfixNotationTokens());
-				print("Œã’u‹L–@", calculator.getPostfixNotationTokens());
+				print("ä¸­ç½®è¨˜æ³•", calculator.getInfixNotationTokens());
+				print("å¾Œç½®è¨˜æ³•", calculator.getPostfixNotationTokens());
 				analyzer.printStructure(formula);
-				System.out.print("ŒvZŒ‹‰ÊF");
+				System.out.print("è¨ˆç®—çµæœï¼š");
 			}
 			System.out.println(realValueRequired ? value.getRealValue() : value);
 		} catch (InvalidFormulaException e) {
@@ -88,9 +88,9 @@ public class Main {
 		}
 	}
 	/**
-	 * ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚©‚çA”®‚ğæ“¾‚·‚éB”®‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í{@code null}‚ğ•Ô‚·B
-	 * @param args ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”
-	 * @return ”®
+	 * ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã‹ã‚‰ã€æ•°å¼ã‚’å–å¾—ã™ã‚‹ã€‚æ•°å¼ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯{@code null}ã‚’è¿”ã™ã€‚
+	 * @param args ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°
+	 * @return æ•°å¼
 	 */
 	private static String getFormula(String[] args) {
 		for (String string : args)
@@ -99,9 +99,9 @@ public class Main {
 		return null;
 	}
 	/**
-	 * ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚©‚çAÀ”o—Í‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©‚ÌƒIƒvƒVƒ‡ƒ“({@link #OPTION_REAL_VALUE})w’è‚ğæ“¾‚·‚é
-	 * @param args ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”
-	 * @return ƒIƒvƒVƒ‡ƒ“‚ª—LŒø‚©‚Ç‚¤‚©
+	 * ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã‹ã‚‰ã€å®Ÿæ•°å‡ºåŠ›ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ã©ã†ã‹ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³({@link #OPTION_REAL_VALUE})æŒ‡å®šã‚’å–å¾—ã™ã‚‹
+	 * @param args ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°
+	 * @return ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒæœ‰åŠ¹ã‹ã©ã†ã‹
 	 */
 	private static boolean isRealValueRequired(String[] args) {
 		for (String string : args)
@@ -110,9 +110,9 @@ public class Main {
 		return false;
 	}
 	/**
-	 * ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”‚©‚çAŒvZ‰ß’öo—Í‚ğ—LŒø‚É‚·‚é‚©‚Ç‚¤‚©‚ÌƒIƒvƒVƒ‡ƒ“({@link #OPTION_SHOW_FORMULA})w’è‚ğæ“¾‚·‚é
-	 * @param args ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ˆø”
-	 * @return ƒIƒvƒVƒ‡ƒ“‚ª—LŒø‚©‚Ç‚¤‚©
+	 * ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°ã‹ã‚‰ã€è¨ˆç®—éç¨‹å‡ºåŠ›ã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹ã©ã†ã‹ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³({@link #OPTION_SHOW_FORMULA})æŒ‡å®šã‚’å–å¾—ã™ã‚‹
+	 * @param args ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å¼•æ•°
+	 * @return ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒæœ‰åŠ¹ã‹ã©ã†ã‹
 	 */
 	private static boolean showFormula(String[] args) {
 		for (String string : args)
@@ -121,11 +121,11 @@ public class Main {
 		return false;
 	}
 	/**
-	 * ƒ†[ƒU[‚Ì”®“ü—Í‚ğ‹‚ß‚éB‰½‚à“ü—Í‚µ‚È‚©‚Á‚½ê‡A‚»‚±‚Åˆ—‚ğI—¹‚·‚éB
-	 * @return ”®
+	 * ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®æ•°å¼å…¥åŠ›ã‚’æ±‚ã‚ã‚‹ã€‚ä½•ã‚‚å…¥åŠ›ã—ãªã‹ã£ãŸå ´åˆã€ãã“ã§å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹ã€‚
+	 * @return æ•°å¼
 	 */
 	private static String requestInput() {
-		System.out.println("”®‚ğ“ü—Í‚µ‚Ä‰º‚³‚¢B‰½‚à“ü—Í‚µ‚È‚¢ê‡‚ÍA‚»‚Ì‚Ü‚ÜI—¹‚µ‚Ü‚·B");
+		System.out.println("æ•°å¼ã‚’å…¥åŠ›ã—ã¦ä¸‹ã•ã„ã€‚ä½•ã‚‚å…¥åŠ›ã—ãªã„å ´åˆã¯ã€ãã®ã¾ã¾çµ‚äº†ã—ã¾ã™ã€‚");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			try {
@@ -134,9 +134,9 @@ public class Main {
 		}
 	}
 	/**
-	 * ƒg[ƒNƒ“—ñ‚ğƒXƒy[ƒX‹æØ‚è‚ÅAˆês‚Åo—Í‚·‚é
-	 * @param title ƒ^ƒCƒgƒ‹
-	 * @param tokens ƒg[ƒNƒ“—ñ
+	 * ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã‚’ã‚¹ãƒšãƒ¼ã‚¹åŒºåˆ‡ã‚Šã§ã€ä¸€è¡Œã§å‡ºåŠ›ã™ã‚‹
+	 * @param title ã‚¿ã‚¤ãƒˆãƒ«
+	 * @param tokens ãƒˆãƒ¼ã‚¯ãƒ³åˆ—
 	 */
 	private static void print(String title, Iterable<Object> tokens) {
 		System.out.print(title + ":");

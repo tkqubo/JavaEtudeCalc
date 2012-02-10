@@ -1,2 +1,2 @@
-/** ������\�����邽�߂̍ŏ��Ӗ��P�ʂł���g�[�N�����`�����p�b�P�[�W�B */
+/** 数式を表現するための最小意味単位であるトークンを定義したパッケージ。 */
 package com.qubo.challenge.calc.tokens;

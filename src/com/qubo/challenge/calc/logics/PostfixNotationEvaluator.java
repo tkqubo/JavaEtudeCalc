@@ -8,25 +8,25 @@ import com.qubo.challenge.calc.tokens.UnaryOperator;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * Œã’u‹L–@‚Å•\Œ»‚µ‚½”®ƒg[ƒNƒ“—ñ‚ğ•]‰¿‚µA{@link Value}Œ^‚Å–ß‚·ƒNƒ‰ƒX
+ * å¾Œç½®è¨˜æ³•ã§è¡¨ç¾ã—ãŸæ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã‚’è©•ä¾¡ã—ã€{@link Value}å‹ã§æˆ»ã™ã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class PostfixNotationEvaluator {
-	private static final String ERROR_UNPROCESSED_VALUES = "”’l—ñ[{0}]‚ğˆ—‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½I";
-	/** ƒIƒyƒ‰ƒ“ƒh–¼: <code>"’P€‰‰Zq‚ÌƒIƒyƒ‰ƒ“ƒh"</code> */
-	public static final String UNARY_OPERAND = "’P€‰‰Zq[{0}]‚ÌƒIƒyƒ‰ƒ“ƒh";
-	/** ƒIƒyƒ‰ƒ“ƒh–¼: <code>"“ñ€‰‰Zq‚Ì¶ƒIƒyƒ‰ƒ“ƒh"</code> */
-	public static final String BINARY_OPERAND1 = "“ñ€‰‰Zq[{0}]‚Ì¶ƒIƒyƒ‰ƒ“ƒh";
-	/** ƒIƒyƒ‰ƒ“ƒh–¼: <code>"“ñ€‰‰Zq‚Ì‰EƒIƒyƒ‰ƒ“ƒh"</code> */
-	public static final String BINARY_OPERAND2 = "“ñ€‰‰Zq[{0}]‚Ì‰EƒIƒyƒ‰ƒ“ƒh";
-	/** ƒGƒ‰[ƒƒbƒZ[ƒW: <code>"{0}‚ª‘«‚è‚Ü‚¹‚ñI"</code> */
-	public static final String ERROR_DEFICIENT_OPERAND = "{0}‚ª‘«‚è‚Ü‚¹‚ñI";
+	private static final String ERROR_UNPROCESSED_VALUES = "æ•°å€¤åˆ—[{0}]ã‚’å‡¦ç†ã§ãã¾ã›ã‚“ã§ã—ãŸï¼";
+	/** ã‚ªãƒšãƒ©ãƒ³ãƒ‰å: <code>"å˜é …æ¼”ç®—å­ã®ã‚ªãƒšãƒ©ãƒ³ãƒ‰"</code> */
+	public static final String UNARY_OPERAND = "å˜é …æ¼”ç®—å­[{0}]ã®ã‚ªãƒšãƒ©ãƒ³ãƒ‰";
+	/** ã‚ªãƒšãƒ©ãƒ³ãƒ‰å: <code>"äºŒé …æ¼”ç®—å­ã®å·¦ã‚ªãƒšãƒ©ãƒ³ãƒ‰"</code> */
+	public static final String BINARY_OPERAND1 = "äºŒé …æ¼”ç®—å­[{0}]ã®å·¦ã‚ªãƒšãƒ©ãƒ³ãƒ‰";
+	/** ã‚ªãƒšãƒ©ãƒ³ãƒ‰å: <code>"äºŒé …æ¼”ç®—å­ã®å³ã‚ªãƒšãƒ©ãƒ³ãƒ‰"</code> */
+	public static final String BINARY_OPERAND2 = "äºŒé …æ¼”ç®—å­[{0}]ã®å³ã‚ªãƒšãƒ©ãƒ³ãƒ‰";
+	/** ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸: <code>"{0}ãŒè¶³ã‚Šã¾ã›ã‚“ï¼"</code> */
+	public static final String ERROR_DEFICIENT_OPERAND = "{0}ãŒè¶³ã‚Šã¾ã›ã‚“ï¼";
 
 	/**
-	 * Œã’u‹L–@‚Å•\Œ»‚µ‚½”®ƒg[ƒNƒ“—ñ‚ğ•]‰¿‚µA{@link Value}Œ^‚Å–ß‚·
-	 * @param tokens ”®
-	 * @return ŒvZŒ‹‰Ê
-	 * @throws InvalidFormulaException ”®‚ÉƒGƒ‰[‚ª‚ ‚éê‡‚É”­¶
+	 * å¾Œç½®è¨˜æ³•ã§è¡¨ç¾ã—ãŸæ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã‚’è©•ä¾¡ã—ã€{@link Value}å‹ã§æˆ»ã™
+	 * @param tokens æ•°å¼
+	 * @return è¨ˆç®—çµæœ
+	 * @throws InvalidFormulaException æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã‚‹å ´åˆã«ç™ºç”Ÿ
 	 */
 	public Value eval(Iterable<Object> tokens) throws InvalidFormulaException {
 		Stack<Value> stack = new Stack<Value>();
@@ -48,7 +48,7 @@ public class PostfixNotationEvaluator {
 				Value result = binaryOperator.operate(operand1, operand2);
 				stack.push(result);
 			} else {
-				throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+				throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 			}
 		}
 
@@ -58,10 +58,10 @@ public class PostfixNotationEvaluator {
 	}
 
 	/**
-	 * ‰‰Z‚É‚æ‚èAƒXƒ^ƒbƒN“à‚Ì{@link Value}‚ª1ŒÂ‚Éû‘©‚³‚ê‚½‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
-	 * ƒXƒ^ƒbƒN“à‚É{@link Value}‚ª2‚ÂˆÈãc‚Á‚Ä‚¢‚½ê‡‚Í—áŠO‚ª”­¶‚·‚éB
-	 * @param stack ‘ÎÛƒXƒ^ƒbƒN
-	 * @throws InvalidFormulaException ƒXƒ^ƒbƒN“à‚É{@link Value}‚ª2‚ÂˆÈãc‚Á‚Ä‚¢‚½ê‡‚É”­¶
+	 * æ¼”ç®—ã«ã‚ˆã‚Šã€ã‚¹ã‚¿ãƒƒã‚¯å†…ã®{@link Value}ãŒ1å€‹ã«åæŸã•ã‚ŒãŸã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+	 * ã‚¹ã‚¿ãƒƒã‚¯å†…ã«{@link Value}ãŒ2ã¤ä»¥ä¸Šæ®‹ã£ã¦ã„ãŸå ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
+	 * @param stack å¯¾è±¡ã‚¹ã‚¿ãƒƒã‚¯
+	 * @throws InvalidFormulaException ã‚¹ã‚¿ãƒƒã‚¯å†…ã«{@link Value}ãŒ2ã¤ä»¥ä¸Šæ®‹ã£ã¦ã„ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private void checkSingleValue(Stack<Value> stack) throws InvalidFormulaException {
 		if (stack.size() != 1) {
@@ -76,10 +76,10 @@ public class PostfixNotationEvaluator {
 	}
 
 	/**
-	 * ƒIƒyƒ‰ƒ“ƒh‚ª•s‘«‚µ‚Ä‚¢‚È‚¢‚©ƒ`ƒFƒbƒNB‘«‚è‚È‚¢ê‡‚Í—áŠO‚ª”­¶
-	 * @param stack ƒIƒyƒ‰ƒ“ƒh‚Ì“ü‚Á‚½ƒXƒ^ƒbƒN
-	 * @param item ‘ÎÛƒIƒyƒ‰ƒ“ƒh–¼
-	 * @throws InvalidFormulaException ƒIƒyƒ‰ƒ“ƒh‚ª‘«‚è‚È‚¢ê‡‚É”­¶
+	 * ã‚ªãƒšãƒ©ãƒ³ãƒ‰ãŒä¸è¶³ã—ã¦ã„ãªã„ã‹ãƒã‚§ãƒƒã‚¯ã€‚è¶³ã‚Šãªã„å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿ
+	 * @param stack ã‚ªãƒšãƒ©ãƒ³ãƒ‰ã®å…¥ã£ãŸã‚¹ã‚¿ãƒƒã‚¯
+	 * @param item å¯¾è±¡ã‚ªãƒšãƒ©ãƒ³ãƒ‰å
+	 * @throws InvalidFormulaException ã‚ªãƒšãƒ©ãƒ³ãƒ‰ãŒè¶³ã‚Šãªã„å ´åˆã«ç™ºç”Ÿ
 	 */
 	private void checkOperandDeficiency(Stack<Value> stack, String item) throws InvalidFormulaException {
 		if (stack.isEmpty()) throw new InvalidFormulaException(MessageFormat.format(ERROR_DEFICIENT_OPERAND, item));

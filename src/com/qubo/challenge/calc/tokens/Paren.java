@@ -1,22 +1,22 @@
 package com.qubo.challenge.calc.tokens;
 
 /**
- * Š‡ŒÊ‚ð•\Œ»‚·‚éƒNƒ‰ƒX
+ * æ‹¬å¼§ã‚’è¡¨ç¾ã™ã‚‹ã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class Paren {
-	/** ŠJ‚«Š‡ŒÊ‚Ì•¶Žš—ñ•\Œ»: {@code "("} */
+	/** é–‹ãæ‹¬å¼§ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "("} */
 	public static final char SYMBOL_PAREN_LEFT = '(';
-	/** •Â‚¶Š‡ŒÊ‚Ì•¶Žš•\Œ»: {@code ")"} */
+	/** é–‰ã˜æ‹¬å¼§ã®æ–‡å­—è¡¨ç¾: {@code ")"} */
 	public static final char SYMBOL_PAREN_RIGHT = ')';
 
-	/** ƒVƒ“ƒ{ƒ‹ */
+	/** ã‚·ãƒ³ãƒœãƒ« */
 	private final char symbol;
 	private Paren(char symbol) { this.symbol = symbol; }
 	@Override public String toString() { return "" + symbol; }
 
-	/** ŠJ‚«Š‡ŒÊ: {@code "("} */
+	/** é–‹ãæ‹¬å¼§: {@code "("} */
 	public static Paren Left = new Paren(SYMBOL_PAREN_LEFT);
-	/** •Â‚¶Š‡ŒÊ: {@code ")"} */
+	/** é–‰ã˜æ‹¬å¼§: {@code ")"} */
 	public static Paren Right = new Paren(SYMBOL_PAREN_RIGHT);
 }

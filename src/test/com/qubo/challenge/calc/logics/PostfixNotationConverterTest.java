@@ -13,14 +13,14 @@ import com.qubo.challenge.calc.logics.InvalidFormulaException;
 import com.qubo.challenge.calc.logics.PostfixNotationConverter;
 
 /**
- * {@link PostfixNotationConverter}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link PostfixNotationConverter}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class PostfixNotationConverterTest {
 	InfixNotationTokenizer tokenizer = new InfixNotationTokenizer();
 	PostfixNotationConverter converter = new PostfixNotationConverter();
 
-	/** {@link PostfixNotationConverter#convert(Iterable)}‚ÌƒeƒXƒg */
+	/** {@link PostfixNotationConverter#convert(Iterable)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testConvert() {
 		doTestConvert("2+5", 2, 5, Add);
@@ -38,10 +38,10 @@ public class PostfixNotationConverterTest {
 		doFailTestConvert(")(", PostfixNotationConverter.ERROR_DEFICIT_LEFTPAREN);
 	}
 	/**
-	 * {@link #testConvert()}—p‚Ì“à•”ƒNƒ‰ƒXB
-	 * ŠÔˆá‚Á‚½”®‚ğ“ü—Í‚µ‚ÄA³‚µ‚­—áŠO‚ª”­¶‚·‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒNB
-	 * @param formula ”®
-	 * @param message —áŠOƒƒbƒZ[ƒW
+	 * {@link #testConvert()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹ã€‚
+	 * é–“é•ã£ãŸæ•°å¼ã‚’å…¥åŠ›ã—ã¦ã€æ­£ã—ãä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã€‚
+	 * @param formula æ•°å¼
+	 * @param message ä¾‹å¤–ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	 */
 	private void doFailTestConvert(String formula, String message) {
 		try {
@@ -52,7 +52,7 @@ public class PostfixNotationConverterTest {
 		}
 	}
 	/**
-	 * {@link #testConvert()}—p‚Ì“à•”ƒNƒ‰ƒX
+	 * {@link #testConvert()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹
 	 * @param input
 	 * @param expecteds
 	 */

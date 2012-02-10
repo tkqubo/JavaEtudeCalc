@@ -8,11 +8,11 @@ import org.junit.Test;
 import com.qubo.challenge.calc.tokens.Function;
 
 /**
- * {@link Function}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link Function}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class FunctionTest {
-	/** {@link Function#gcd(int, int)}‚ÌƒeƒXƒg */
+	/** {@link Function#gcd(int, int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testGcd() {
 		assertThat(Function.gcd(12, 8), is(4));
@@ -21,7 +21,7 @@ public class FunctionTest {
 		assertThat(Function.gcd(6, 6), is(6));
 		assertThat(Function.gcd(4, 82), is(2));
 	}
-	/** {@link Function#lcm(int, int)}‚ÌƒeƒXƒg */
+	/** {@link Function#lcm(int, int)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testLcm() {
 		assertThat(Function.lcm(12, 8), is(24));

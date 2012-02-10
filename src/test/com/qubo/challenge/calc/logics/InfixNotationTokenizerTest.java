@@ -16,13 +16,13 @@ import com.qubo.challenge.calc.logics.InvalidFormulaException;
 import com.qubo.challenge.calc.tokens.Paren;
 
 /**
- * {@link InfixNotationTokenizer}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link InfixNotationTokenizer}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class InfixNotationTokenizerTest {
 	InfixNotationTokenizer tokenizer = new InfixNotationTokenizer();
 
-	/** {@link InfixNotationTokenizer#tokenize(String)}‚ÌƒeƒXƒg */
+	/** {@link InfixNotationTokenizer#tokenize(String)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testTokenize() {
 		doTestTokenize("2+5", 2, Add, 5);
@@ -35,13 +35,13 @@ public class InfixNotationTokenizerTest {
 		doTestTokenize("(2 / 7 + 5 / 14) * 10 / (9/2)", Left, 2, Div, 7, Add, 5, Div, 14, Right, Mul, 10, Div, Left, 9, Div, 2, Right);
 		failTestTokenize("3 = 4", "=");
 		failTestTokenize("7.68", "7.68");
-		failTestTokenize("4 { 3", "{");
+		failTestTokenize("4 ï¼‹ 3", "ï¼‹");
 		failTestTokenize("4 \\ 123", "\\");
 	}
 	/**
-	 * {@link #testTokenize()}—p‚Ì“à•”ƒƒ\ƒbƒhB’è‹`‚³‚ê‚Ä‚¢‚È‚¢ƒg[ƒNƒ“‚ğg—p‚µ‚ÄA³‚µ‚­—áŠO‚ª”­¶‚·‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
-	 * @param input ”®
-	 * @param invalidToken —áŠO‚Å•\¦‚³‚ê‚éƒg[ƒNƒ“
+	 * {@link #testTokenize()}ç”¨ã®å†…éƒ¨ãƒ¡ã‚½ãƒƒãƒ‰ã€‚å®šç¾©ã•ã‚Œã¦ã„ãªã„ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ä½¿ç”¨ã—ã¦ã€æ­£ã—ãä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+	 * @param input æ•°å¼
+	 * @param invalidToken ä¾‹å¤–ã§è¡¨ç¤ºã•ã‚Œã‚‹ãƒˆãƒ¼ã‚¯ãƒ³
 	 */
 	private void failTestTokenize(String input, String invalidToken) {
 		try {
@@ -53,7 +53,7 @@ public class InfixNotationTokenizerTest {
 		}
 	}
 
-	/** {{@link #testTokenize()}—p‚Ì“à•”ƒNƒ‰ƒX */
+	/** {{@link #testTokenize()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹ */
 	private void doTestTokenize(String input, Object... expecteds) {
 		try {
 			int pos = 0;

@@ -3,42 +3,42 @@ package com.qubo.challenge.calc.logics;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * ������ŗ^����ꂽ�������v�Z���A���ʂ�Value�^�Ƃ��ĕԂ��N���X�B
+ * 文字列で与えられた数式を計算し、結果をValue型として返すクラス。
  * @author Qubo
  */
 public class Calculator {
-	/** �v�Z�ߒ��Ő����钆�u�L�@�g�[�N���� */
+	/** 計算過程で生じる中置記法トークン列 */
 	private Iterable<Object> infixNotationTokens;
-	/** �v�Z�ߒ��Ő������u�L�@�g�[�N���� */
+	/** 計算過程で生じる後置記法トークン列 */
 	private Iterable<Object> postfixNotationTokens;
 
 	/**
-	 * �Ō��{@link #eval(String)}�Ŏ��s���ꂽ�����́A���u�L�@�g�[�N�����Ԃ�
-	 * @return ���u�L�@�g�[�N����
+	 * 最後に{@link #eval(String)}で実行された数式の、中置記法トークン列を返す
+	 * @return 中置記法トークン列
 	 */
 	public Iterable<Object> getInfixNotationTokens() { return infixNotationTokens; }
 	/**
-	 * �Ō��{@link #eval(String)}�Ŏ��s���ꂽ�����́A��u�L�@�g�[�N�����Ԃ�
-	 * @return ��u�L�@�g�[�N����
+	 * 最後に{@link #eval(String)}で実行された数式の、後置記法トークン列を返す
+	 * @return 後置記法トークン列
 	 */
 	public Iterable<Object> getPostfixNotationTokens() { return postfixNotationTokens; }
 
 	/**
-	 * ������ŗ^����ꂽ�������v�Z���A���ʂ�Value�^�Ƃ��ĕԂ��B
+	 * 文字列で与えられた数式を計算し、結果をValue型として返す。
 	 * <br />
-	 * �v�Z�͈ȉ��̃v���Z�X�Ő��藧�B
+	 * 計算は以下のプロセスで成り立つ。
 	 * <ol>
-	 * <li>�������A���E���Z�q�E���ʂȂǂ̍\���v�f���Ƃɐ؂蕪����</li>
-	 * <li>���̔z��𒆒u�L�@�̃g�[�N����֕ϊ�</li>
-	 * <li>���������u�L�@�֕ϊ�</li>
-	 * <li>������������A�v�Z�v�Z���ʂ��擾����</li>
+	 * <li>数式を、数・演算子・括弧などの構成要素ごとに切り分ける</li>
+	 * <li>その配列を中置記法のトークン列へ変換</li>
+	 * <li>それをが後置記法へ変換</li>
+	 * <li>それを処理し、計算計算結果を取得する</li>
 	 * </ol>
-	 * 1�`3�̉ߒ��Ŕ����������u�L�@�g�[�N����A��u�L�@�g�[�N����́A���\�b�h�̎��s��A���ꂼ��
-	 * {@link #getInfixNotationTokens()}�A{@link #getPostfixNotationTokens()}�Ŏ擾���邱�Ƃ��ł���B
+	 * 1～3の過程で発生した中置記法トークン列、後置記法トークン列は、メソッドの実行後、それぞれ
+	 * {@link #getInfixNotationTokens()}、{@link #getPostfixNotationTokens()}で取得することができる。
 	 *
-	 * @param input ����
-	 * @return �v�Z����
-	 * @throws InvalidFormulaException �����ɃG���[���������ꍇ�ɔ���
+	 * @param input 数式
+	 * @return 計算結果
+	 * @throws InvalidFormulaException 数式にエラーがあった場合に発生
 	 */
 	public Value eval(String input) throws InvalidFormulaException {
 		InfixNotationTokenizer tokenizer = new InfixNotationTokenizer();

@@ -2,19 +2,19 @@ package com.qubo.challenge.calc.tokens;
 
 
 /**
- * “ñ€‰‰Zq‚ğ•\Œ»‚·‚éƒCƒ“ƒ^[ƒtƒF[ƒX
+ * äºŒé …æ¼”ç®—å­ã‚’è¡¨ç¾ã™ã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
  * @author Qubo
  */
 public interface BinaryOperator extends Operator {
 	/**
-	 * “ñ€‰‰Z‚ğs‚¤
-	 * @param operand1 ƒIƒyƒ‰ƒ“ƒh‚P
-	 * @param operand2 ƒIƒyƒ‰ƒ“ƒh‚Q
-	 * @return ‰‰ZŒ‹‰Ê
+	 * äºŒé …æ¼”ç®—ã‚’è¡Œã†
+	 * @param operand1 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼‘
+	 * @param operand2 ã‚ªãƒšãƒ©ãƒ³ãƒ‰ï¼’
+	 * @return æ¼”ç®—çµæœ
 	 */
 	Value operate(Value operand1, Value operand2);
 
-	/** ‰ÁZ */
+	/** åŠ ç®— */
 	static BinaryOperator Add = new AbstractBinaryOperator(SYMBOL_ADD, PRIORITY_1) {
 		@Override
 		public Value operate(Value operand1, Value operand2) {
@@ -24,7 +24,7 @@ public interface BinaryOperator extends Operator {
 			return new Value(num1 + num2, lcmOfDenominator);
 		}
 	};
-	/** Œ¸Z */
+	/** æ¸›ç®— */
 	final static BinaryOperator Sub = new AbstractBinaryOperator(SYMBOL_SUB, PRIORITY_1) {
 		@Override
 		public Value operate(Value operand1, Value operand2) {
@@ -34,14 +34,14 @@ public interface BinaryOperator extends Operator {
 			return new Value(num1 - num2, lcmOfDenominator);
 		}
 	};
-	/** æZ */
+	/** ä¹—ç®— */
 	final static BinaryOperator Mul = new AbstractBinaryOperator(SYMBOL_MUL, PRIORITY_2) {
 		@Override
 		public Value operate(Value operand1, Value operand2) {
 			return new Value(operand1.getNumerator() * operand2.getNumerator(), operand1.getDenominator() * operand2.getDenominator());
 		}
 	};
-	/** œZ */
+	/** é™¤ç®— */
 	final static BinaryOperator Div = new AbstractBinaryOperator(SYMBOL_DIV, PRIORITY_2) {
 		@Override
 		public Value operate(Value operand1, Value operand2) {
@@ -50,13 +50,13 @@ public interface BinaryOperator extends Operator {
 	};
 
 	/**
-	 * “à•”—pB{@link BinaryOperator}‚ğÀ‘•‚µ‚½’ŠÛƒNƒ‰ƒXB
+	 * å†…éƒ¨ç”¨ã€‚{@link BinaryOperator}ã‚’å®Ÿè£…ã—ãŸæŠ½è±¡ã‚¯ãƒ©ã‚¹ã€‚
 	 * @author Qubo
 	 */
 	abstract class AbstractBinaryOperator implements BinaryOperator {
-		/** ‰‰Zq‚ÌƒVƒ“ƒ{ƒ‹ */
+		/** æ¼”ç®—å­ã®ã‚·ãƒ³ãƒœãƒ« */
 		private final char symbol;
-		/** ‰‰Z‚Ì—Dæ‡ˆÊ */
+		/** æ¼”ç®—ã®å„ªå…ˆé †ä½ */
 		private final int priority;
 
 		AbstractBinaryOperator(char symbol, int priority) {
@@ -64,13 +64,13 @@ public interface BinaryOperator extends Operator {
 			this.priority = priority;
 		}
 		/*
-		 * (”ñ Javadoc)
+		 * (é Javadoc)
 		 * @see com.qubo.caea0121.calc.tokens.Operator#getPriority()
 		 */
 		@Override
 		public int getPriority() { return priority; }
 		/*
-		 * (”ñ Javadoc)
+		 * (é Javadoc)
 		 * @see java.lang.Object#toString()
 		 */
 		@Override

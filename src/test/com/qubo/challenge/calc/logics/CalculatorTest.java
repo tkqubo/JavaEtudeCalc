@@ -15,13 +15,13 @@ import com.qubo.challenge.calc.logics.InvalidFormulaException;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * {@link Calculator}—p‚ÌƒeƒXƒg‚ğ’è‹`‚µ‚½ƒNƒ‰ƒX
+ * {@link Calculator}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚’å®šç¾©ã—ãŸã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class CalculatorTest {
 	Calculator calculator = new Calculator();
 
-	/** {@link Calculator#eval(String)}‚ÌƒeƒXƒg */
+	/** {@link Calculator#eval(String)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testEval() {
 		try {
@@ -40,13 +40,13 @@ public class CalculatorTest {
 		failTestEval("2+&", "&");
 		failTestEval("4+%%%", "%%%");
 		failTestEval("3.14", "3.14");
-		failTestEval("3–6", "3–6");
+		failTestEval("3ï¼Š6", "3ï¼Š6");
 		failTestEval("h", "h");
 	}
 	/**
-	 * {@link #testEval()}—p‚Ì“à•”ƒƒ\ƒbƒhB’è‹`‚³‚ê‚Ä‚¢‚È‚¢ƒg[ƒNƒ“‚ğg—p‚µ‚ÄA—áŠO‚ª”­¶‚·‚é‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN
-	 * @param input ”®
-	 * @param invalidToken —áŠO‚Å•\¦‚³‚ê‚éƒg[ƒNƒ“
+	 * {@link #testEval()}ç”¨ã®å†…éƒ¨ãƒ¡ã‚½ãƒƒãƒ‰ã€‚å®šç¾©ã•ã‚Œã¦ã„ãªã„ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ä½¿ç”¨ã—ã¦ã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯
+	 * @param input æ•°å¼
+	 * @param invalidToken ä¾‹å¤–ã§è¡¨ç¤ºã•ã‚Œã‚‹ãƒˆãƒ¼ã‚¯ãƒ³
 	 */
 	private void failTestEval(String input, String invalidToken) {
 		try {
@@ -58,10 +58,10 @@ public class CalculatorTest {
 		}
 	}
 	/**
-	 * {@link #testEval()}—p‚Ì“à•”ƒƒ\ƒbƒh
+	 * {@link #testEval()}ç”¨ã®å†…éƒ¨ãƒ¡ã‚½ãƒƒãƒ‰
 	 * @param input
 	 * @param expected
-	 * @throws InvalidFormulaException ”®‚ÉƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚É”­¶
+	 * @throws InvalidFormulaException æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private void doTestEval(String input, double expected) throws InvalidFormulaException {
 		Value value = calculator.eval(input);

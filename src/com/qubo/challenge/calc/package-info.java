@@ -1,17 +1,17 @@
 /**
  * <p>
- * ƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒgƒNƒ‰ƒX{@link com.qubo.challenge.calc.Main}‚ðŽû‚ß‚½ƒpƒbƒP[ƒWB
+ * ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã‚¯ãƒ©ã‚¹{@link com.qubo.challenge.calc.Main}ã‚’åŽã‚ãŸãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚
  * </p>
  * <p>
- * ƒvƒƒOƒ‰ƒ€‚Íˆø”‚Æ‚µ‚Ä
+ * ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯å¼•æ•°ã¨ã—ã¦
  * <ul>
- * <li>”Ž®</li>
- * <li>ŽÀ”•\Ž¦ƒIƒvƒVƒ‡ƒ“({@code "-d"})</li>
- * <li>ŒvŽZ‰ß’öo—ÍƒIƒvƒVƒ‡ƒ“({@code "-s"})</li>
+ * <li>æ•°å¼</li>
+ * <li>å®Ÿæ•°è¡¨ç¤ºã‚ªãƒ—ã‚·ãƒ§ãƒ³({@code "-d"})</li>
+ * <li>è¨ˆç®—éŽç¨‹å‡ºåŠ›ã‚ªãƒ—ã‚·ãƒ§ãƒ³({@code "-s"})</li>
  * </ul>
- * ‚Ì‚R‚Â‚ðŽæ‚é‚±‚Æ‚ª‚Å‚«‚éB
+ * ã®ï¼“ã¤ã‚’å–ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
  * <br />
- * ‹N“®ƒRƒ}ƒ“ƒh—áF<br />
+ * èµ·å‹•ã‚³ãƒžãƒ³ãƒ‰ä¾‹ï¼š<br />
  * <code>
  * java com.qubo.caea0121.calc.Main "1 + 4 * -5"<br />
  * java com.qubo.caea0121.calc.Main 3-5/2+8 -d -s<br />
@@ -19,10 +19,10 @@
  * </code>
  * </p>
  * <p>
- * ˆø”‚É”Ž®‚ðŠÜ‚ß‚È‚©‚Á‚½ê‡AƒRƒ“ƒ\[ƒ‹‚©‚ç”Ž®‚Ì“ü—Í‚ð‹‚ß‚éu˜A‘±ŽÀsƒ‚[ƒhv‚Å‹N“®‚·‚éB
- * ‚±‚Ìƒ‚[ƒh‚Å‚ÍAˆø”‚É“Á‚ÉƒIƒvƒVƒ‡ƒ“‚ªŽw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡AuŽÀ”•\Ž¦ƒIƒvƒVƒ‡ƒ“‚È‚µvuŒvŽZ‰ß’öo—ÍƒIƒvƒVƒ‡ƒ“‚ ‚èv
- * ‚Ìó‘Ô‚Å‹N“®‚·‚éB
- * ‚Ü‚½A‰½‚à“ü—Í‚¹‚¸EnterƒL[‚ð‰Ÿ‚µ‚ÄI—¹‚·‚é‚Ü‚ÅA‰½“x‚àŒvŽZ‚ðŽÀs‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+ * å¼•æ•°ã«æ•°å¼ã‚’å«ã‚ãªã‹ã£ãŸå ´åˆã€ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã‹ã‚‰æ•°å¼ã®å…¥åŠ›ã‚’æ±‚ã‚ã‚‹ã€Œé€£ç¶šå®Ÿè¡Œãƒ¢ãƒ¼ãƒ‰ã€ã§èµ·å‹•ã™ã‚‹ã€‚
+ * ã“ã®ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã€å¼•æ•°ã«ç‰¹ã«ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ã€Œå®Ÿæ•°è¡¨ç¤ºã‚ªãƒ—ã‚·ãƒ§ãƒ³ãªã—ã€ã€Œè¨ˆç®—éŽç¨‹å‡ºåŠ›ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚ã‚Šã€
+ * ã®çŠ¶æ…‹ã§èµ·å‹•ã™ã‚‹ã€‚
+ * ã¾ãŸã€ä½•ã‚‚å…¥åŠ›ã›ãšEnterã‚­ãƒ¼ã‚’æŠ¼ã—ã¦çµ‚äº†ã™ã‚‹ã¾ã§ã€ä½•åº¦ã‚‚è¨ˆç®—ã‚’å®Ÿè¡Œã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
  * </p>
  */
 package com.qubo.challenge.calc;

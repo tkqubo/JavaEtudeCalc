@@ -2,25 +2,25 @@ package com.qubo.challenge.calc.tokens;
 
 
 /**
- * —L—”‚ğ•\Œ»‚µ‚½ƒNƒ‰ƒXB
+ * æœ‰ç†æ•°ã‚’è¡¨ç¾ã—ãŸã‚¯ãƒ©ã‚¹ã€‚
  * @author Qubo
  */
 public class Value {
-	/** •ª•ê‚ª0‚É‚È‚Á‚½‚Æ‚«‚É”­¶‚·‚é{@link ArithmeticException}‚ÌƒƒbƒZ[ƒW“à—e */
-	public static final String EXCEPTION_DIVIDED_BY_ZERO = "0‚ÅœZ‚µ‚Ü‚µ‚½I";
-	/** •ª•ê */
+	/** åˆ†æ¯ãŒ0ã«ãªã£ãŸã¨ãã«ç™ºç”Ÿã™ã‚‹{@link ArithmeticException}ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å†…å®¹ */
+	public static final String EXCEPTION_DIVIDED_BY_ZERO = "0ã§é™¤ç®—ã—ã¾ã—ãŸï¼";
+	/** åˆ†æ¯ */
 	private int denominator;
-	/** •ªq */
+	/** åˆ†å­ */
 	private int numerator;
 
 	/**
-	 * •ª•ê‚ğæ“¾‚·‚é
-	 * @return •ª•ê
+	 * åˆ†æ¯ã‚’å–å¾—ã™ã‚‹
+	 * @return åˆ†æ¯
 	 */
 	public int getDenominator() { return denominator; }
 	/**
-	 * •ª•ê‚ğİ’è‚·‚é
-	 * @param denominator İ’è‚·‚é’l
+	 * åˆ†æ¯ã‚’è¨­å®šã™ã‚‹
+	 * @param denominator è¨­å®šã™ã‚‹å€¤
 	 */
 	public void setDenominator(int denominator) {
 		if (denominator == 0) throw new ArithmeticException(EXCEPTION_DIVIDED_BY_ZERO);
@@ -28,13 +28,13 @@ public class Value {
 		reduce();
 	}
 	/**
-	 * •ªq‚ğæ“¾‚·‚é
-	 * @return •ªq
+	 * åˆ†å­ã‚’å–å¾—ã™ã‚‹
+	 * @return åˆ†å­
 	 */
 	public int getNumerator() { return numerator; }
 	/**
-	 * •ªq‚ğİ’è‚·‚é
-	 * @param numerator İ’è‚·‚é’l
+	 * åˆ†å­ã‚’è¨­å®šã™ã‚‹
+	 * @param numerator è¨­å®šã™ã‚‹å€¤
 	 */
 	public void setNumerator(int numerator) {
 		this.numerator = numerator;
@@ -42,14 +42,14 @@ public class Value {
 	}
 
 	/**
-	 * •ª•ê‚ª1‚Ì®”‚ğ¶¬‚·‚é
-	 * @param value ®”
+	 * åˆ†æ¯ãŒ1ã®æ•´æ•°ã‚’ç”Ÿæˆã™ã‚‹
+	 * @param value æ•´æ•°
 	 */
 	public Value(int value) { this(value, 1); }
 	/**
-	 * •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	 * @param numerator •ªq
-	 * @param denominator •ª•ê
+	 * æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+	 * @param numerator åˆ†å­
+	 * @param denominator åˆ†æ¯
 	 */
 	public Value(int numerator, int denominator) {
 		if (denominator == 0) throw new ArithmeticException(EXCEPTION_DIVIDED_BY_ZERO);
@@ -58,7 +58,7 @@ public class Value {
 		reduce();
 	}
 
-	/** –ñ•ª‚ğs‚¤ */
+	/** ç´„åˆ†ã‚’è¡Œã† */
 	private void reduce() {
 		if (denominator < 0) {
 			denominator = -denominator;
@@ -72,22 +72,22 @@ public class Value {
 	}
 
 	/**
-	 * ’l‚ğÀ”‚Åæ“¾‚·‚é
-	 * @return ”’l‚ÌÀ”•\Œ»
+	 * å€¤ã‚’å®Ÿæ•°ã§å–å¾—ã™ã‚‹
+	 * @return æ•°å€¤ã®å®Ÿæ•°è¡¨ç¾
 	 */
 	public double getRealValue() {
 		return (double) numerator / denominator;
 	}
 
 	/**
-	 * ’l‚ğ•ª”•\Œ»‚Ì•¶š—ñ‚Å•\¦‚·‚é
+	 * å€¤ã‚’åˆ†æ•°è¡¨ç¾ã®æ–‡å­—åˆ—ã§è¡¨ç¤ºã™ã‚‹
 	 */
 	@Override
 	public String toString() {
 		return numerator + (denominator != 1 ? "/" + denominator : "");
 	}
 	/*
-	 * (”ñ Javadoc)
+	 * (é Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override

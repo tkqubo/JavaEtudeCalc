@@ -1,18 +1,18 @@
 package com.qubo.challenge.calc.tokens;
 
 /**
- * ”Šw‚Ì•Ö—˜ŠÖ”‚ğû‚ß‚½ƒNƒ‰ƒX
+ * æ•°å­¦ã®ä¾¿åˆ©é–¢æ•°ã‚’åã‚ãŸã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class Function {
-	/** ‚±‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Íg‚í‚È‚¢‚¢ */
-	private Function() { throw new RuntimeException("‚±‚ÌƒNƒ‰ƒX‚ÍƒCƒ“ƒXƒ^ƒ“ƒX‰»‚Å‚«‚Ü‚¹‚ñI"); }
+	/** ã“ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ä½¿ã‚ãªã„ã„ */
+	private Function() { throw new RuntimeException("ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã§ãã¾ã›ã‚“ï¼"); }
 
 	/**
-	 * “ñ‚Â‚Ì®”‚ÌÅ‘åŒö–ñ”‚ğ‹‚ß‚é
-	 * @param a ®”‚P
-	 * @param b ®”‚Q
-	 * @return Å‘åŒö–ñ”
+	 * äºŒã¤ã®æ•´æ•°ã®æœ€å¤§å…¬ç´„æ•°ã‚’æ±‚ã‚ã‚‹
+	 * @param a æ•´æ•°ï¼‘
+	 * @param b æ•´æ•°ï¼’
+	 * @return æœ€å¤§å…¬ç´„æ•°
 	 */
 	public static int gcd(int a, int b) {
 		a = Math.abs(a);
@@ -21,10 +21,10 @@ public class Function {
 		return r == 0 ? b : gcd(b, r);
 	}
 	/**
-	 * “ñ‚Â‚Ì®”‚ÌÅ¬Œö”{”‚ğ‹‚ß‚é
-	 * @param a ®”‚P
-	 * @param b ®”‚Q
-	 * @return Å¬Œö”{”
+	 * äºŒã¤ã®æ•´æ•°ã®æœ€å°å…¬å€æ•°ã‚’æ±‚ã‚ã‚‹
+	 * @param a æ•´æ•°ï¼‘
+	 * @param b æ•´æ•°ï¼’
+	 * @return æœ€å°å…¬å€æ•°
 	 */
 	public static int lcm(int a, int b) {
 		a = Math.abs(a);

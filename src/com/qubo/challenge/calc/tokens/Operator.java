@@ -1,45 +1,45 @@
 package com.qubo.challenge.calc.tokens;
 
 /**
- * ‰‰Zq‚ğ•\Œ»‚·‚éƒCƒ“ƒ^[ƒtƒF[ƒX
+ * æ¼”ç®—å­ã‚’è¡¨ç¾ã™ã‚‹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
  * @author Qubo
  */
 public interface Operator {
-	/** ‰ÁZ‚Ì•¶š—ñ•\Œ»: {@code "+"} */
+	/** åŠ ç®—ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "+"} */
 	public static final char SYMBOL_ADD = '+';
-	/** Œ¸Z‚Ì•¶š—ñ•\Œ»: {@code "-"} */
+	/** æ¸›ç®—ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "-"} */
 	public static final char SYMBOL_SUB = '-';
-	/** æZ‚Ì•¶š—ñ•\Œ»: {@code "*"} */
+	/** ä¹—ç®—ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "*"} */
 	public static final char SYMBOL_MUL = '*';
-	/** œZ‚Ì•¶š—ñ•\Œ»: {@code "/"} */
+	/** é™¤ç®—ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "/"} */
 	public static final char SYMBOL_DIV = '/';
-	/** •‰”‚Ì•¶š—ñ•\Œ»: {@code "neg"} */
+	/** è² æ•°ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "neg"} */
 	public static final String SYMBOL_NEG = "neg";
-	/** â‘Î’l‚Ì•¶š—ñ•\Œ»: {@code "abs"} */
+	/** çµ¶å¯¾å€¤ã®æ–‡å­—åˆ—è¡¨ç¾: {@code "abs"} */
 	public static final String SYMBOL_ABS = "abs";
 
-	/** ‰ÁZ */
+	/** åŠ ç®— */
 	public static final BinaryOperator Add = BinaryOperator.Add;
-	/** Œ¸Z */
+	/** æ¸›ç®— */
 	public static final BinaryOperator Sub = BinaryOperator.Sub;
-	/** æZ */
+	/** ä¹—ç®— */
 	public static final BinaryOperator Mul = BinaryOperator.Mul;
-	/** œZ */
+	/** é™¤ç®— */
 	public static final BinaryOperator Div = BinaryOperator.Div;
-	/** •‰” */
+	/** è² æ•° */
 	public static final UnaryOperator Neg = UnaryOperator.Neg;
-	/** â‘Î’l */
+	/** çµ¶å¯¾å€¤ */
 	public static final UnaryOperator Abs = UnaryOperator.Abs;
 
-	/** ‰‰Z‚Ì—Dæ‡ˆÊ‚Pi‰ÁZAŒ¸Zj */
+	/** æ¼”ç®—ã®å„ªå…ˆé †ä½ï¼‘ï¼ˆåŠ ç®—ã€æ¸›ç®—ï¼‰ */
 	final int PRIORITY_1 = 1;
-	/** ‰‰Z‚Ì—Dæ‡ˆÊ‚QiæZAœZj */
+	/** æ¼”ç®—ã®å„ªå…ˆé †ä½ï¼’ï¼ˆä¹—ç®—ã€é™¤ç®—ï¼‰ */
 	final int PRIORITY_2 = 2;
-	/** ‰‰Z‚Ì—Dæ‡ˆÊ‚Ri•‰”Aâ‘Î’lj */
+	/** æ¼”ç®—ã®å„ªå…ˆé †ä½ï¼“ï¼ˆè² æ•°ã€çµ¶å¯¾å€¤ï¼‰ */
 	final int PRIORITY_3 = 3;
 	/**
-	 * ‰‰Zq‚Ì—Dæ‡ˆÊ‚ğ•Ô‚·
-	 * @return ‰‰Zq‚Ì—Dæ‡ˆÊ
+	 * æ¼”ç®—å­ã®å„ªå…ˆé †ä½ã‚’è¿”ã™
+	 * @return æ¼”ç®—å­ã®å„ªå…ˆé †ä½
 	 */
 	public abstract int getPriority();
 }

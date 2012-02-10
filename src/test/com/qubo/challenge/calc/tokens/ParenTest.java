@@ -8,11 +8,11 @@ import org.junit.Test;
 import com.qubo.challenge.calc.tokens.Paren;
 
 /**
- * {@link Paren}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link Paren}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class ParenTest {
-	/** {@link Paren#toString()}‚ÌƒeƒXƒg */
+	/** {@link Paren#toString()}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testToString() {
 		assertThat(Paren.Left.toString(), is(""+Paren.SYMBOL_PAREN_LEFT));

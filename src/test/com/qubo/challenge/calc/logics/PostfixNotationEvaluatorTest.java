@@ -11,7 +11,7 @@ import com.qubo.challenge.calc.logics.PostfixNotationEvaluator;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * {@link PostfixNotationEvaluator}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link PostfixNotationEvaluator}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class PostfixNotationEvaluatorTest {
@@ -19,7 +19,7 @@ public class PostfixNotationEvaluatorTest {
 	PostfixNotationConverter converter = new PostfixNotationConverter();
 	PostfixNotationEvaluator evaluator = new PostfixNotationEvaluator();
 
-	/** {@link PostfixNotationEvaluator#eval(Iterable)}‚ÌƒeƒXƒg */
+	/** {@link PostfixNotationEvaluator#eval(Iterable)}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testEval() {
 		doTestEval("2+5", 7);
@@ -32,7 +32,7 @@ public class PostfixNotationEvaluatorTest {
 		doTestEval("1/3 + 2/3 - 3/2 * 8 - 4", -15);
 		doTestEval("(2 / 7 + 5 / 14) * 10 / (9/2)", 10/7.0f);
 	}
-	/** {@link #testEval()}—p‚Ì“à•”ƒNƒ‰ƒX */
+	/** {@link #testEval()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹ */
 	private void doTestEval(String input, double expected) {
 		try {
 			Value value = evaluator.eval(converter.convert(tokenizer.tokenize(input)));

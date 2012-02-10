@@ -11,29 +11,29 @@ import com.qubo.challenge.calc.tokens.Operator;
 import com.qubo.challenge.calc.tokens.UnaryOperator;
 
 /**
- * ”®‚ğA‰‰Z‚Ì—Dæ‡ˆÊ‚ÉŠî‚Ã‚¢‚ÄŠK‘w\‘¢‚Å•\¦‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX
+ * æ•°å¼ã‚’ã€æ¼”ç®—ã®å„ªå…ˆé †ä½ã«åŸºã¥ã„ã¦éšå±¤æ§‹é€ ã§è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class FormulaAnalyzer {
 	/**
-	 * ”®‚ğA‰‰Z‚Ì—Dæ‡ˆÊ‚ÉŠî‚Ã‚¢‚ÄŠK‘w\‘¢‚Å•\¦
+	 * æ•°å¼ã‚’ã€æ¼”ç®—ã®å„ªå…ˆé †ä½ã«åŸºã¥ã„ã¦éšå±¤æ§‹é€ ã§è¡¨ç¤º
 	 * @param input
-	 * @throws InvalidFormulaException ”®‚ÉƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚É”­¶
+	 * @throws InvalidFormulaException æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	public void printStructure(String input) throws InvalidFormulaException {
 		String[] lines = getStructure(input);
-		System.out.println("”®\‘¢F");
-		System.out.println("„¡" + pad(lines[0].length() + 2, '-') + "„¢");
+		System.out.println("æ•°å¼æ§‹é€ ï¼š");
+		System.out.println("â”Œ" + pad(lines[0].length() + 2, '-') + "â”");
 		for (String line : lines) {
-			System.out.println("„  " + line + " „ ");
+			System.out.println("â”‚ " + line + " â”‚");
 		}
-		System.out.println("„¤" + pad(lines[0].length() + 2, '-') + "„£");
+		System.out.println("â””" + pad(lines[0].length() + 2, '-') + "â”˜");
 	}
 	/**
-	 * ”®‚ğA‰‰Z‚Ì—Dæ‡ˆÊ‚ÉŠî‚Ã‚¢‚ÄŠK‘w\‘¢‚É‚µ‚½‚à‚Ì‚ğ{@link List}{@code <}{@link String}{@code >}‚Æ‚µ‚Äæ“¾‚·‚é
+	 * æ•°å¼ã‚’ã€æ¼”ç®—ã®å„ªå…ˆé †ä½ã«åŸºã¥ã„ã¦éšå±¤æ§‹é€ ã«ã—ãŸã‚‚ã®ã‚’{@link List}{@code <}{@link String}{@code >}ã¨ã—ã¦å–å¾—ã™ã‚‹
 	 * @param input
-	 * @return ŠK‘w\‘¢‰»‚³‚ê‚½”®
-	 * @throws InvalidFormulaException ”®‚ÉƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚É”­¶
+	 * @return éšå±¤æ§‹é€ åŒ–ã•ã‚ŒãŸæ•°å¼
+	 * @throws InvalidFormulaException æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	public String[] getStructure(String input) throws InvalidFormulaException {
 		LeveledToken value = getLeveledValue(input);
@@ -44,10 +44,10 @@ public class FormulaAnalyzer {
 		return lines.toArray(new String[0]);
 	}
 	/**
-	 * —^‚¦‚ç‚ê‚½”®‚ğŒ³‚ÉAŠK‘wƒŒƒxƒ‹•t‚Ì”®ƒg[ƒNƒ“‚ğ¶¬‚·‚é“à•”—pƒƒ\ƒbƒh
-	 * @param input ”®
-	 * @return {@link LeveledToken}ƒIƒuƒWƒFƒNƒg
-	 * @throws InvalidFormulaException ”®‚ÉƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚É”­¶
+	 * ä¸ãˆã‚‰ã‚ŒãŸæ•°å¼ã‚’å…ƒã«ã€éšå±¤ãƒ¬ãƒ™ãƒ«ä»˜ã®æ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ç”Ÿæˆã™ã‚‹å†…éƒ¨ç”¨ãƒ¡ã‚½ãƒƒãƒ‰
+	 * @param input æ•°å¼
+	 * @return {@link LeveledToken}ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws InvalidFormulaException æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã«ç™ºç”Ÿ
 	 */
 	private LeveledToken getLeveledValue(String input) throws InvalidFormulaException {
 		Calculator calc = new Calculator();
@@ -70,30 +70,30 @@ public class FormulaAnalyzer {
 				LeveledToken child = LeveledToken.combine(operand1, binaryOperator, operand2);
 				stack.push(child);
 			} else {
-				throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+				throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 			}
 		}
 
 		return (LeveledToken) stack.pop();
 	}
 	/**
-	 * ŠK‘wƒŒƒxƒ‹•t‚Ì”®ƒg[ƒNƒ“B
+	 * éšå±¤ãƒ¬ãƒ™ãƒ«ä»˜ã®æ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³ã€‚
 	 * @author Qubo
 	 */
 	static class LeveledToken {
-		/** “à•ï‚·‚éƒg[ƒNƒ“ */
+		/** å†…åŒ…ã™ã‚‹ãƒˆãƒ¼ã‚¯ãƒ³ */
 		Object[] tokens;
 		/**
-		 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-		 * @param tokens “à•ï‚·‚éƒg[ƒNƒ“‚Ì”z—ñ
+		 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
+		 * @param tokens å†…åŒ…ã™ã‚‹ãƒˆãƒ¼ã‚¯ãƒ³ã®é…åˆ—
 		 */
 		LeveledToken(Object... tokens) { this.tokens = tokens; }
 		/**
-		 * {@link LeveledToken}ƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Ä‚Ì”í‰‰Zq‚Æ‰‰Zq‚ğŒ‹‡‚µAV‚µ‚­{@link LeveledToken}ƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚éB
-		 * @param operand1 ”í‰‰Zq‚P
-		 * @param operator ‰‰Zq
-		 * @param operand2 ”í‰‰Zq‚Q
-		 * @return V‚½‚É¶¬‚³‚ê‚½{@link LeveledToken}ƒIƒuƒWƒFƒNƒg
+		 * {@link LeveledToken}ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦ã®è¢«æ¼”ç®—å­ã¨æ¼”ç®—å­ã‚’çµåˆã—ã€æ–°ã—ã{@link LeveledToken}ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
+		 * @param operand1 è¢«æ¼”ç®—å­ï¼‘
+		 * @param operator æ¼”ç®—å­
+		 * @param operand2 è¢«æ¼”ç®—å­ï¼’
+		 * @return æ–°ãŸã«ç”Ÿæˆã•ã‚ŒãŸ{@link LeveledToken}ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 		 */
 		static LeveledToken combine(LeveledToken operand1, Operator operator, LeveledToken operand2) {
 			List<Object> list = new ArrayList<Object>();
@@ -121,8 +121,8 @@ public class FormulaAnalyzer {
 
 
 		/**
-		 * ”®‚Ì•¶š—ñ‚Æ‚µ‚Ä‚Ì’·‚³‚ğæ“¾‚·‚éB
-		 * @return ”®‚Ì•¶š—ñ‚Æ‚µ‚Ä‚Ì’·‚³
+		 * æ•°å¼ã®æ–‡å­—åˆ—ã¨ã—ã¦ã®é•·ã•ã‚’å–å¾—ã™ã‚‹ã€‚
+		 * @return æ•°å¼ã®æ–‡å­—åˆ—ã¨ã—ã¦ã®é•·ã•
 		 */
 		int length() {
 			int total = 1;
@@ -139,7 +139,7 @@ public class FormulaAnalyzer {
 						total += child.length();
 					}
 				} else {
-					throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+					throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 				}
 			}
 			total += tokens.length - 1;
@@ -149,8 +149,8 @@ public class FormulaAnalyzer {
 			return token.tokens.length == 1 && token.tokens[0] instanceof Integer;
 		}
 		/**
-		 * ”®‚ÌƒŒƒxƒ‹‚ğæ“¾‚·‚é
-		 * @return ”®‚ÌƒŒƒxƒ‹
+		 * æ•°å¼ã®ãƒ¬ãƒ™ãƒ«ã‚’å–å¾—ã™ã‚‹
+		 * @return æ•°å¼ã®ãƒ¬ãƒ™ãƒ«
 		 */
 		int level() {
 			int level = 0;
@@ -163,13 +163,13 @@ public class FormulaAnalyzer {
 						level = Math.max(level, child.level() + 1);
 					}
 				} else {
-					throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+					throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 				}
 			}
 			return level;
 		}
 		/**
-		 * w’è‚µ‚½ƒŒƒxƒ‹‚É‘¶İ‚·‚é”®ƒg[ƒNƒ“‚ğ•¶š—ñ‚Æ‚µ‚Äæ“¾‚·‚éB
+		 * æŒ‡å®šã—ãŸãƒ¬ãƒ™ãƒ«ã«å­˜åœ¨ã™ã‚‹æ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³ã‚’æ–‡å­—åˆ—ã¨ã—ã¦å–å¾—ã™ã‚‹ã€‚
 		 * @param level
 		 * @return
 		 */
@@ -205,16 +205,16 @@ public class FormulaAnalyzer {
 						builder.append(child.getLevelString(level));
 					}
 				} else {
-					throw new UnsupportedOperationException(token + "‚Íˆ—‚Å‚«‚Ü‚¹‚ñI");
+					throw new UnsupportedOperationException(token + "ã¯å‡¦ç†ã§ãã¾ã›ã‚“ï¼");
 				}
 			}
 			return builder.toString();
 		}
 		/**
-		 * ”®ƒg[ƒNƒ“—ñ‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚é‰‰Zq‚ªAw’è‚³‚ê‚½’l‚Æ“¯‚¶‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN‚·‚éB
-		 * ƒg[ƒNƒ“—ñ‚É‰‰Zq‚ªŠÜ‚Ü‚ê‚È‚¢i‚Â‚Ü‚è”’l‚Ì‚İj‚Ìê‡‚ÍA{@code true}‚ğ•Ô‚·B
-		 * @param priority ‰‰Zq‚Ì—Dæ‡ˆÊ
-		 * @return ƒ`ƒFƒbƒN‚³‚ê‚½’l
+		 * æ•°å¼ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã«å«ã¾ã‚Œã¦ã„ã‚‹æ¼”ç®—å­ãŒã€æŒ‡å®šã•ã‚ŒãŸå€¤ã¨åŒã˜ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ã€‚
+		 * ãƒˆãƒ¼ã‚¯ãƒ³åˆ—ã«æ¼”ç®—å­ãŒå«ã¾ã‚Œãªã„ï¼ˆã¤ã¾ã‚Šæ•°å€¤ã®ã¿ï¼‰ã®å ´åˆã¯ã€{@code true}ã‚’è¿”ã™ã€‚
+		 * @param priority æ¼”ç®—å­ã®å„ªå…ˆé †ä½
+		 * @return ãƒã‚§ãƒƒã‚¯ã•ã‚ŒãŸå€¤
 		 */
 		boolean isOperatorPriority(int priority) {
 			for (Object token : tokens) {
@@ -227,19 +227,19 @@ public class FormulaAnalyzer {
 		}
 	}
 	/**
-	 * ƒg[ƒNƒ“‚Ì•¶š—ñ’·‚É‘Š“–‚·‚éƒpƒfƒBƒ“ƒO•¶š—ñ‚ğ•Ô‚·
-	 * @param token ƒg[ƒNƒ“
-	 * @param padding ƒpƒfƒBƒ“ƒO
-	 * @return ƒpƒfƒBƒ“ƒO•¶š—ñ
+	 * ãƒˆãƒ¼ã‚¯ãƒ³ã®æ–‡å­—åˆ—é•·ã«ç›¸å½“ã™ã‚‹ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—åˆ—ã‚’è¿”ã™
+	 * @param token ãƒˆãƒ¼ã‚¯ãƒ³
+	 * @param padding ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°
+	 * @return ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—åˆ—
 	 */
 	private static String pad(Object token, char padding) {
 		return pad(token.toString().length(), padding);
 	}
 	/**
-	 * w’è‚µ‚½’·‚³‚ÌƒpƒfƒBƒ“ƒO•¶š—ñ‚ğ•Ô‚·
-	 * @param length ’·‚³
-	 * @param padding ƒpƒfƒBƒ“ƒO
-	 * @return ƒpƒfƒBƒ“ƒO•¶š—ñ
+	 * æŒ‡å®šã—ãŸé•·ã•ã®ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—åˆ—ã‚’è¿”ã™
+	 * @param length é•·ã•
+	 * @param padding ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°
+	 * @return ãƒ‘ãƒ‡ã‚£ãƒ³ã‚°æ–‡å­—åˆ—
 	 */
 	private static String pad(int length, char padding) {
 		StringBuilder builder = new StringBuilder();

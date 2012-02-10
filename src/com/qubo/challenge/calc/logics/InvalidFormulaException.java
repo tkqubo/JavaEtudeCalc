@@ -1,13 +1,13 @@
 package com.qubo.challenge.calc.logics;
 
 /**
- * ”®‚ÉƒGƒ‰[‚ª‚ ‚Á‚½ê‡‚É”­¶B
+ * æ•°å¼ã«ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸå ´åˆã«ç™ºç”Ÿã€‚
  * @author Qubo
  */
 public class InvalidFormulaException extends Exception {
-	/** ƒVƒŠƒAƒ‹ƒo[ƒWƒ‡ƒ“UIDH */
+	/** ã‚·ãƒªã‚¢ãƒ«ãƒãƒ¼ã‚¸ãƒ§ãƒ³UIDï¼Ÿ */
 	private static final long serialVersionUID = 1L;
-	/** •W€‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+	/** æ¨™æº–ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 	public InvalidFormulaException() { super(); }
 	public InvalidFormulaException(String message, Throwable throwable) { super(message, throwable); }
 	public InvalidFormulaException(String mesasge) { super(mesasge); }

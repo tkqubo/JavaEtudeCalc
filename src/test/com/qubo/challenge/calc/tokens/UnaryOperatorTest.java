@@ -14,11 +14,11 @@ import com.qubo.challenge.calc.tokens.UnaryOperator;
 import com.qubo.challenge.calc.tokens.Value;
 
 /**
- * {@link UnaryOperator}—p‚ÌƒeƒXƒgƒNƒ‰ƒX
+ * {@link UnaryOperator}ç”¨ã®ãƒ†ã‚¹ãƒˆã‚¯ãƒ©ã‚¹
  * @author Qubo
  */
 public class UnaryOperatorTest {
-	/** {@link UnaryOperator#Neg}‚ÌƒeƒXƒg */
+	/** {@link UnaryOperator#Neg}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testMinus() {
 		doTest(1, 2, "-1/2", Neg);
@@ -30,7 +30,7 @@ public class UnaryOperatorTest {
 	}
 
 
-	/** {@link UnaryOperator#Abs}‚ÌƒeƒXƒg */
+	/** {@link UnaryOperator#Abs}ã®ãƒ†ã‚¹ãƒˆ */
 	@Test
 	public void testAbs() {
 		doTest(-1, 2, "1/2", Abs);
@@ -52,11 +52,11 @@ public class UnaryOperatorTest {
 		assertThat(Operator.Abs.toString(), is(Operator.SYMBOL_ABS));
 	}
 	/**
-	 * {@link #testMinus()}, {@link #testAbs()}—p‚Ì“à•”ƒNƒ‰ƒX
-	 * @param num ƒIƒyƒ‰ƒ“ƒh‚Ì•ªq
-	 * @param den ƒIƒyƒ‰ƒ“ƒh‚Ì•ª•ê
-	 * @param expected ‰‰ZŒ‹‰Ê‚Ì•¶š—ñ•\Œ»
-	 * @param operator ƒeƒXƒg‚·‚é{@link UnaryOperator}ƒCƒ“ƒXƒ^ƒ“ƒX
+	 * {@link #testMinus()}, {@link #testAbs()}ç”¨ã®å†…éƒ¨ã‚¯ãƒ©ã‚¹
+	 * @param num ã‚ªãƒšãƒ©ãƒ³ãƒ‰ã®åˆ†å­
+	 * @param den ã‚ªãƒšãƒ©ãƒ³ãƒ‰ã®åˆ†æ¯
+	 * @param expected æ¼”ç®—çµæœã®æ–‡å­—åˆ—è¡¨ç¾
+	 * @param operator ãƒ†ã‚¹ãƒˆã™ã‚‹{@link UnaryOperator}ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 	 */
 	private void doTest(int num, int den, String expected, UnaryOperator operator) {
 		Value value = new Value(num, den);
